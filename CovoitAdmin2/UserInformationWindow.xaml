@@ -1,0 +1,86 @@
+﻿<Window x:Class="CovoitAdmin2.UserInformationWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CovoitAdmin2"
+        mc:Ignorable="d" FontSize="18"
+        Title="Information utilisateur" Height="450" Width="1150" Icon="/logo_covoit2.ico">
+    <Grid Margin="10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <TextBlock x:Name="ErrorBox" Grid.Row="0" Grid.Column="2" />
+        <TextBlock Grid.Row="1" Grid.Column="1" Text="Information personnel" />
+        <Grid Grid.Row="2" Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="10" />
+                <ColumnDefinition Width="120" />
+                <ColumnDefinition Width="120" />
+                <ColumnDefinition Width="100" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="10" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="10" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="10" />
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="1" Grid.Column="1" Text="Nom : " />
+            <TextBox Grid.Row="1" Grid.Column="2" Text="Decoster " x:Name="FName" IsEnabled="False" />
+            <Button Grid.Row="1" Grid.Column="3" x:Name="ButtonModificationInformationFName" Click="ButtonModificationInformationFName_Click" Content="Modifier" Background="#333333" Foreground="#FFFFFF"/>
+            <TextBlock Grid.Row="2" Grid.Column="1" Text="Prenom : " />
+            <TextBox Grid.Row="2" Grid.Column="2" Text="Erwan " x:Name="LName" IsEnabled="False" />
+            <Button Grid.Row="2" Grid.Column="3" x:Name="ButtonModificationInformationLName" Click="ButtonModificationInformationLName_Click" Content="Modifier" Background="#333333" Foreground="#FFFFFF"/>
+            <TextBlock Grid.Row="3" Grid.Column="1" Text="Tel : " />
+            <TextBox Grid.Row="3" Grid.Column="2" Text="0625306813 " x:Name="Tel" IsEnabled="False" />
+            <Button Grid.Row="3" Grid.Column="3" x:Name="ButtonModificationInformationTel" Click="ButtonModificationInformationTel_Click" Content="Modifier" Background="#333333" Foreground="#FFFFFF"/>
+            <TextBlock Grid.Row="4" Grid.Column="1" Text="Admin : " />
+            <CheckBox Grid.Row="4" Grid.Column="2" x:Name="Admin" IsEnabled="False" />
+            <Button Grid.Row="4" Grid.Column="3" x:Name="ButtonModificationInformationAdmin" Click="ButtonModificationInformationAdmin_Click" Content="Modifier" Background="#333333" Foreground="#FFFFFF"/>
+            <TextBlock Grid.Row="5" Grid.Column="1" Text="Mot de passe : " />
+            <PasswordBox Grid.Row="5" Grid.Column="2" Password="********" x:Name="Password" IsEnabled="False" />
+            <Button Grid.Row="5" Grid.Column="3" x:Name="ButtonResetPassword" Click="ButtonResetPassword_Click" Content="Réinitialiser" Background="#FFB50000" Foreground="#FFFFFF" />
+        </Grid>
+        <TextBlock Grid.Row="3" Grid.Column="1" Text="Vehicule" />
+        <DataGrid x:Name="VehicleGrid" Grid.Row="4" Grid.Column="1" AutoGenerateColumns="False" IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="40" Header="Id" Binding="{Binding IdVehicles}"/>
+                <DataGridTextColumn Width="90" Header="Id Motori" Binding="{Binding IdMotorization}"/>
+                <DataGridTextColumn Header="VehicleName" Binding="{Binding VehicleName}" />
+                <DataGridTextColumn Header="NbPlaces" Binding="{Binding NbPlaces}" />
+                <DataGridTextColumn Header="Couleur" Binding="{Binding Color}" />
+                <DataGridTextColumn Width="220" Header="DateCreate" Binding="{Binding DateCreate}" />
+                <DataGridTextColumn Width="220" Header="DateModification" Binding="{Binding DateModification}" />
+                <DataGridTemplateColumn Width="130" Header="Modifier">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Tag="{Binding IdUser}" x:Name="ButtonModificationVehicle" Click="ButtonModificationVehicle_Click" Content="Modifier" Background="#333333" Foreground="#FFFFFF"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn  Width="130" Header="Supprimer">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Tag="{Binding IdUser}" x:Name="ButtonDeleteVehicle" Click="ButtonDeleteVehicle_Click" Content="Supprimer" Background="#FFB50000" Foreground="#FFFFFF" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>

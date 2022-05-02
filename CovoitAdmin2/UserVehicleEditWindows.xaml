@@ -1,0 +1,54 @@
+﻿<Window x:Class="CovoitAdmin2.UserVehicleEditWindows"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CovoitAdmin2"
+        mc:Ignorable="d"  FontSize="18"
+        Title="Edition Vehicule" Height="250" Width="600" Icon="/logo_covoit2.ico">
+    <Grid Margin="10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <TextBlock x:Name="ErrorBox" Grid.Row="0" Grid.Column="2" />
+        <TextBlock Grid.Row="1" Grid.Column="1" Text="Information du véhicule" />
+        <Grid Grid.Row="2" Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="10" />
+                <ColumnDefinition Width="170" />
+                <ColumnDefinition Width="120" />
+                <ColumnDefinition Width="130" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="10" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="10" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="10" />
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="1" Grid.Column="1" Text="Id motorisation : " />
+            <TextBox Grid.Row="1" Grid.Column="2" Text="" x:Name="IdMotorisation" IsEnabled="False" />
+            <Button Grid.Row="1" Grid.Column="3" x:Name="ButtonModificationInformationIdMotorisation" Click="ButtonModificationInformationIdMotorisation_Click" Content="Modifier" Background="#333333" Foreground="#FFFFFF"/>
+            <TextBlock Grid.Row="2" Grid.Column="1" Text="Nom du vehicule : " />
+            <TextBox Grid.Row="2" Grid.Column="2" Text="" x:Name="VehicleName" IsEnabled="False" />
+            <Button Grid.Row="2" Grid.Column="3" x:Name="ButtonModificationInformationVehicleName" Click="ButtonModificationInformationVehicleName_Click" Content="Modifier" Background="#333333" Foreground="#FFFFFF"/>
+            <TextBlock Grid.Row="3" Grid.Column="1" Text="Couleur : " />
+            <TextBox Grid.Row="3" Grid.Column="2" Text="" x:Name="VehicleColor" IsEnabled="False" />
+            <Button Grid.Row="3" Grid.Column="3" x:Name="ButtonModificationInformationVehicleColor" Click="ButtonModificationInformationVehicleColor_Click" Content="Modifier" Background="#333333" Foreground="#FFFFFF"/>
+        </Grid>
+    </Grid>
+</Window>
